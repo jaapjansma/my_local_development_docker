@@ -3,6 +3,16 @@
 This is my local CiviCRM development environment build with docker.
 Based on the Michael McAndrew buildkit docker.
 
+Getting started 
+
+```
+
+git clone https://github.com/jaapjansma/my_local_development_docker.git
+cd my_local_development_docker
+docker-compose up -d
+
+```
+
 ## Subsites
 
 Sites in the directory html are set as sub sites and could be accessed by http://mytestsite.localhost:8180
