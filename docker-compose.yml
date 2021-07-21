@@ -1,0 +1,48 @@
+version: "3.6"
+services:
+  civicrm:
+    build: ./docker
+    hostname: civicrm
+    environment:
+      TERM: xterm-color
+      APACHE_RUN_USER: buildkit
+    links:
+      - mysql
+    ports:
+      - "8180:80"
+    volumes:
+      - ./docker/civicrm.ini:/usr/local/etc/php/conf.d/civicrm.ini
+      - ./html:/var/www/html
+      - ./extra:/extra
+    restart: unless-stopped
+    
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: buildkit
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "33062:3306"  
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8181:80"
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: buildkit
+    restart: unless-stopped
+
+  maildev:
+    image: djfarrelly/maildev
+    ports:
+      - "8182:80"
+    restart: unless-stopped
+
+volumes:
+  mysql:

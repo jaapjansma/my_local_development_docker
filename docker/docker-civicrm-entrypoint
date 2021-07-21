@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+
+# xdebug setup
+CONTAINER_IP=`/sbin/ip route|awk '/default/ { print $3 }'`
+cat << EOF > /usr/local/etc/php/conf.d/debug.ini
+zend_extension=xdebug.so
+xdebug.client_host=${CONTAINER_IP}
+EOF
+
+# first arg is `-f` or `--some-option`
+if [ "${1#-}" != "$1" ]; then
+	set -- apache2-foreground "$@"
+fi
+
+exec "$@"
