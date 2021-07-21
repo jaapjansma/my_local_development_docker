@@ -13,9 +13,11 @@ docker-compose up -d
 
 ```
 
+Go to http://testsite.localhost:8180 to see if everything is ok. A PHP info should be shown.
+
 ## Subsites
 
-Sites in the directory html are set as sub sites and could be accessed by http://mytestsite.localhost:8180
+Sites in the directory html are set as sub sites and could be accessed by http://testsite.localhost:8180
 
 ## Mysql
 
