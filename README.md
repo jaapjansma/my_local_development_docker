@@ -40,3 +40,23 @@ cd /var/www/html/yoursite
 civix ....
 
 ```
+
+## Drush
+
+Drush can then be run by going into the container
+
+```bash
+
+docker-compose exec -u buildkit civicrm bash
+cd /var/www/html/yoursite
+drush ....
+
+```
+
+## XDebug
+
+XDebug is installed and enabled by default.
+
+## PHP.ini changes
+
+You can do additional php.ini changes to docker/civicrm.ini (restart your container after making changes)
