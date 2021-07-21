@@ -3,7 +3,7 @@
 This is my local CiviCRM development environment build with docker.
 Based on the Michael McAndrew buildkit docker.
 
-Getting started 
+# Getting up and running 
 
 ```
 
@@ -31,7 +31,7 @@ http://localhost:8181
 
 ## Civix
 
-Civix can ben run by going into the container
+Civix can then be run by going into the container
 
 ```bash
 
