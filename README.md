@@ -21,6 +21,21 @@ Sites in the directory html are set as sub sites and could be accessed by http:/
 
 Mysql is exposed on post 33062
 
+### Importing mysql databases
+
+Could be either done with dbeaver with a connection to localhost on port 33062
+or with the following command
+
+```
+docker-compose exec -T mysql mysql -uroot -p --database yourdatabase < yourfile.sql
+```
+
+### Mysql Settings for your sites
+
+**Hostname** mysql
+**User** root
+**Password** buildkit
+
 ## Mail
 
 There is webmail available on http://localhost:8182 this webmail catches all outgoing mail.
